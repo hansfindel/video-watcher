@@ -74,18 +74,11 @@ api_call = () ->
 				video = content.href
 				published = entry['published']["$t"]
 				title = entry['title']["$t"]
-				fn = (a,b) ->
-					[a, b].join(" - ")
 				uploader = entry['author'][0]["name"]["$t"]
-				
 				media = entry["media$group"]
-				console.log media
-				description = media["media$description"]
-				
+				description = media["media$description"]["$t"]
 				thumb = media["media$thumbnail"]
-				console.log thumb
 				thumbnail = thumb[1]["url"] #["yt:name"="mqdefault"]
-
 				duration = media["yt$duration"]["seconds"]
 				views = entry["yt$statistics"]["viewCount"]
 				likes = entry["yt$rating"]["numLikes"]
@@ -101,9 +94,9 @@ api_call = () ->
 					title:		 title
 					thumbnail:	 thumbnail
 					views:		 views
-					video_url:	 video
-				console.log(json)
-				console.log "#####################################"
+					videoUrl:	 video
+				#console.log(json)
+				#console.log "#####################################"
 				display_video(json)
 	null 
 

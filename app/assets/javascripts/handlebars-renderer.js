@@ -12,7 +12,6 @@ function Renderer(_template){
   this.display = function(json, container){
     var html = this.template(json);
     //$(container).append(html)
-    console.log(html)
     $(html).appendTo(container)
   }
 }
