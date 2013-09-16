@@ -1,3 +1,10 @@
+GIT
+  remote: git@github.com:hansfindel/rails-handlebars.git
+  revision: 13e87497c559381e2f092cfd52580c1680f97fcf
+  specs:
+    rails-handlebars (1.0.2)
+      sprockets (> 2.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -110,6 +117,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.0)
+  rails-handlebars!
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3

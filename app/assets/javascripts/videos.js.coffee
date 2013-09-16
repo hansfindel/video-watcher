@@ -20,47 +20,20 @@ api_call = () ->
 				console.log title
 				console.log published 
 				console.log "######"
+				json = 
+					title: title
+					date: published
+				display_video(json)
 	null 
 
-load_youtube_api_script = () ->
-	if $("tag#iframe_api").length == 0
-		tag = document.createElement('script');
-		tag.src = "https://www.youtube.com/iframe_api";
-		tag.id = "iframe_api"
-		firstScriptTag = $('script')[0];
-		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-	true
+video_renderer = () ->
+	if renderer == undefined
+		renderer = new Renderer(Handlebars.TEMPLATES["_film"])
+	renderer 
 
-load_video = ->
-	load_youtube_api_script()
-
-	#This function creates an <iframe> (and YouTube player) after the API code downloads.
-	onYouTubeIframeAPIReady = () ->
-		player = new YT.Player('player',
-			'height': '390'
-			'width': '640'
-			'videoId': 'M7lc1UVf-VE'
-			'events': 
-				'onReady': onPlayerReady
-				'onStateChange': onPlayerStateChange
-		)
-
-	onPlayerReady = (event) ->
-		event.target.playVideo()
-
-	done = false
-	#The API calls this function when the player's state changes.
-	onPlayerStateChange = (event) -> 
-		if (event.data == YT.PlayerState.PLAYING && !done)
-			setTimeout(stopVideo, 6000);
-			done = true;
-		true
-
-	stopVideo = () ->
-		player.stopVideo();
-
-
-
-
+display_video = (json) ->
+	container = $(".videos-container")
+	render = video_renderer()
+	render.display(json, container)
 
 api_call()
