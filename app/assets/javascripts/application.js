@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require ../../../vendor/assets/javascripts/handlebars
 // require jquery_ujs
 // require turbolinks
 //= require_tree .
