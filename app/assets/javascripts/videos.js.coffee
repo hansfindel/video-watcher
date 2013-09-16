@@ -9,11 +9,17 @@ api_call = () ->
 			"api-key": "AIzaSyAOfBgH4yIffYHU1tweqeagwjYMXsdQaDA"
 		headers: 
 			'X-GData-Key': 'key='+dev_key
-		dataType: 'JSON'
+		dataType: 'xml'
 		error: (jqXHR, textStatus, errorThrown) ->
 			$('body').append "AJAX Error: #{textStatus}"
-		success: (data, textStatus, jqXHR) ->
-			console.log(data)
+		success: (xml) ->
+			#console.log(xml)
+			$(xml).find('entry').each () ->
+				published = $(this).find('published').text()
+				title = $(this).find('title').text()
+				console.log title)
+				console.log published 
+				console.log "######"
 	null 
 
 api_call()
