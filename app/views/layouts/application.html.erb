@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VideosWatcher</title>
+  <%= stylesheet_link_tag    "application"%>
+  <%= javascript_include_tag "application"%>
+  <%= csrf_meta_tags %>
+</head>
+<body class="container">
+<section class="row app-title">
+	<section class="col-4 col-push-4 title">
+		<h1 class="header-title">Video Watcher</h1>
+	</section>
+</section>
+<section class="row">
+	<%= yield %>
+</section>
+</body>
+</html>
