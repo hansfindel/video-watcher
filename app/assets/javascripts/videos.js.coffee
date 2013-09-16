@@ -18,20 +18,16 @@ xml_api_call = () ->
 				published = $(this).find('published').text()
 				title = $(this).find('title').text()
 				uploader = $(this).find('author').find('name').text()
-				
 				content = $(this).find("link[rel='alternate'][type='text/html']")
 				video = content.attr("href")
 				
-				media = $(this).find("[nodeName='media:group']")
+				media = $(this).find("media\:group")
 				console.log media
-
 				description = $(media).find("media:description")
 				console.log description
 				console.log description.text()
 				console.log description.html()
 				console.log $(description)
-
-
 				thumb = $(media).find("thumbnail")
 				console.log thumb
 				thumbnail = $(thumb).attr("url") #["yt:name"="mqdefault"]
@@ -39,7 +35,6 @@ xml_api_call = () ->
 				views = $(this).find("yt:statistics").attr("viewCount")
 				likes = $(this).find("yt:rating").attr("numLikes")
 				dislikes = $(this).find("yt:rating").attr("numDislikes")
-
 				json = 
 					author:		 uploader
 					date: 		 published
@@ -51,7 +46,6 @@ xml_api_call = () ->
 					thumbnail:	 thumbnail
 					views:		 views
 					video_url:	 video
-
 				console.log(json)
 				console.log "#####################################"
 				display_video(json)
@@ -71,35 +65,33 @@ api_call = () ->
 		dataType: 'JSON'
 		error: (jqXHR, textStatus, errorThrown) ->
 			$('body').append "AJAX Error: #{textStatus}"
-		success: (xml) ->
-			console.log(xml)
-			$(xml).find('entry').each () ->
-				published = $(this).find('published').text()
-				title = $(this).find('title').text()
-				uploader = $(this).find('author').find('name').text()
+		success: (data) ->
+			console.log(data)
+			entries = data["feed"]["entry"]
+			entries.map (entry) ->
+				id = entry["id"]["$t"]
+				content = entry["link"][0] #[rel='alternate'][type='text/html']")
+				video = content.href
+				published = entry['published']["$t"]
+				title = entry['title']["$t"]
+				fn = (a,b) ->
+					[a, b].join(" - ")
+				uploader = entry['author'][0]["name"]["$t"]
 				
-				content = $(this).find("link[rel='alternate'][type='text/html']")
-				video = content.attr("href")
-				
-				media = $(this).find("media")
+				media = entry["media$group"]
 				console.log media
-
-				description = $(media).find("media:description")
-				console.log description
-				console.log description.text()
-				console.log description.html()
-				console.log $(description)
-
-
-				thumb = $(media).find("thumbnail")
+				description = media["media$description"]
+				
+				thumb = media["media$thumbnail"]
 				console.log thumb
-				thumbnail = $(thumb).attr("url") #["yt:name"="mqdefault"]
-				duration = $(this).find("yt:duration").attr("seconds")
-				views = $(this).find("yt:statistics").attr("viewCount")
-				likes = $(this).find("yt:rating").attr("numLikes")
-				dislikes = $(this).find("yt:rating").attr("numDislikes")
+				thumbnail = thumb[1]["url"] #["yt:name"="mqdefault"]
 
+				duration = media["yt$duration"]["seconds"]
+				views = entry["yt$statistics"]["viewCount"]
+				likes = entry["yt$rating"]["numLikes"]
+				dislikes = entry["yt$rating"]["numDislikes"]
 				json = 
+					videoId:	 id
 					author:		 uploader
 					date: 		 published
 					description: description
@@ -110,7 +102,6 @@ api_call = () ->
 					thumbnail:	 thumbnail
 					views:		 views
 					video_url:	 video
-
 				console.log(json)
 				console.log "#####################################"
 				display_video(json)
@@ -128,4 +119,6 @@ display_video = (json) ->
 	render = video_renderer()
 	render.display(json, container)
 
-xml_api_call()
+
+#xml_api_call()
+api_call()

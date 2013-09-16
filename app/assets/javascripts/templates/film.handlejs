@@ -1,7 +1,8 @@
-<article class="video">
+<div class="envolve-video">
+<article class="video" data-video-id={{videoId}}>
 	<div class="video-thumbnail col-3">
 		<!-- <iframe title="YouTube video player" class="youtube-player" type="text/html" width="200" height="135" src="http://www.youtube.com/v/uelHwf8o7_U?version=3&amp;f=videos&amp;d=AfaDH_nQgCuNTKHkPssLQt4O88HsQjpE1a8d1GxQnGDm&amp;app=youtube_gdata" frameborder="0" allowFullScreen></iframe> -->
-		<img src={{thumbnail}} data-video-url={{video-url}} />
+		<img src={{thumbnail}} data-video-url={{videoUrl}} />
 		<p>{{as_date date}}</p>
 	</div>
 	<div class="video-info col-8">
@@ -19,3 +20,4 @@
 		<p>comments...</p>
 	</div>
 </article>
+</div>
