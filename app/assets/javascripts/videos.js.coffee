@@ -59,9 +59,8 @@ load_video = ->
 	stopVideo = () ->
 		player.stopVideo();
 
-	
+
 
 
 
 api_call()
-load_video()

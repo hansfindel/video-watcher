@@ -32,3 +32,6 @@
 .header-title{
 	font-size: 3em;
 }
+article.video{
+	width: 100%;
+}

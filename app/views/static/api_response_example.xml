@@ -73,7 +73,8 @@
 			<media:thumbnail url='http://i.ytimg.com/vi/uelHwf8o7_U/2.jpg' height='90' width='120' time='00:02:14' yt:name='middle'/>
 			<media:thumbnail url='http://i.ytimg.com/vi/uelHwf8o7_U/3.jpg' height='90' width='120' time='00:03:21' yt:name='end'/>
 			<media:title type='plain'>Eminem - Love The Way You Lie ft. Rihanna</media:title>
-			<yt:aspectRatio>widescreen</yt:aspectRatio><yt:duration seconds='268'/>
+			<yt:aspectRatio>widescreen</yt:aspectRatio>
+			<yt:duration seconds='268'/>
 			<yt:uploaded>2010-08-05T19:09:46.000Z</yt:uploaded>
 			<yt:uploaderId>UC20vb-R_px4CguHzzBPhoyQ</yt:uploaderId>
 			<yt:videoid>uelHwf8o7_U</yt:videoid>
