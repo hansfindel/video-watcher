@@ -28,7 +28,15 @@ function Paginator(fn){
 	nearBottom = function(){
 		if(window.length > 0){
 			//console.log($(window).scrollTop(), " - " ,$(".videos-container").height())
-			return $(window).scrollTop() > $(".videos-container").height() - 1000;
+			var l = $(".videos-container").data("l")
+			if(l == "false"){
+				$(".videos-container").data("l", "true")
+				return $(window).scrollTop() > $(".videos-container").height() - 1000;	
+			}
+			else{
+				$(".videos-container").data("l", "false")
+				return false;
+			}
 		}else{
 			return false;
 		}
