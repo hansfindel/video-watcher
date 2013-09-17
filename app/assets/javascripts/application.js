@@ -25,6 +25,14 @@ $(document).ready(function(){
 		}
 	})
 	watch_button_click()
+	$("form").submit(function(e){
+		e.preventDefault();
+		input = $(this).children("input")
+
+		t = input.val()
+		console.log(t);
+		input.val("")
+	})
 })
 
 function watch_button_click(){ 
