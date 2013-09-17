@@ -46,7 +46,7 @@ function Paginator(data, fn){
 	this.check = function(){
 		//console.log("checking. . .")
 		if(nearBottom()){
-				console.log("fetching...")
+				//console.log("fetching...")
 				//this.fetch();
 				fetch();
 		}

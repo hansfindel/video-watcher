@@ -30,6 +30,7 @@ $(document).ready(function(){
 		input = $(this).children("input")
 		t = input.val()
 		//console.log(t);
+		$("html, body").animate({ scrollTop: 0 }, "slow");
 		input.val("")
 		$(".videos-container").data("q", t);
 		$(".videos-container").html("")

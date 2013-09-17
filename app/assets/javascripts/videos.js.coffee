@@ -6,9 +6,11 @@ api_call = (data) ->
 		data = {}
 	data["v"] = "2"
 	data["alt"] = "json"
-	console.log data	
+	#console.log data	
 	data["max-results"] = 10
 	data["api-key"] = "AIzaSyAOfBgH4yIffYHU1tweqeagwjYMXsdQaDA"
+	if data["q"] == undefined || data["q"] == null
+		data["q"] = "javascript"
 	$.ajax 
 		url: 'http://gdata.youtube.com/feeds/api/videos?',		
 		type: 'GET'
@@ -23,6 +25,7 @@ api_call = (data) ->
 			#console.log(data)
 			entries = data["feed"]["entry"]
 			entries.map (entry) ->
+				console.log entry
 				id = entry["id"]["$t"]
 				#content = entry["link"][0] #[rel='alternate'][type='text/html']")
 				#video = content.href
@@ -39,7 +42,7 @@ api_call = (data) ->
 				thumbnail = thumb[1]["url"] #["yt:name"="mqdefault"]
 				duration = media["yt$duration"]["seconds"]
 				views = entry["yt$statistics"]["viewCount"]
-				likes = entry["yt$rating"]["numLikes"]
+				likes    = entry["yt$rating"]["numLikes"]
 				dislikes = entry["yt$rating"]["numDislikes"]
 				rating = entry["gd$rating"]["average"]
 				json = 
