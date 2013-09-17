@@ -19,15 +19,14 @@ function Paginator(data, fn){
 		console.log("con this")
 		self = this;
 
-		this.data["page"] = this.get_page();
+		this.data = get_page();
 		console.log(this.data)
 		fn(this.data)
 		
 	}
 	fetch = function(){
 		//stopScrolling()
-		console.log("sin this")
-		
+		//console.log("sin this")		
 		info = get_data()
 		fn(info)
 	}

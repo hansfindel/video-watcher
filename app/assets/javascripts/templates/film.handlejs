@@ -10,7 +10,7 @@
 			<h2 class="title">{{title}}</h2>
 			<div class="col-7">
 				<p>{{description}}</p>
-				<span class="stars">
+				<span class="stars" data-rating="{{rating}}">
 					<span class="{{ iluminate 1 rating }}">★</span>
 					<span class="{{ iluminate 2 rating }}">★</span>
 					<span class="{{ iluminate 3 rating }}">★</span>
