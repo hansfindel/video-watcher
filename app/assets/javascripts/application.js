@@ -28,6 +28,7 @@ $(document).ready(function(){
 })
 
 function watch_button_click(){ 
+	$("button.watch").unbind("click")
 	$("button.watch").click(function(){
 		click_on_watch_button($(this))
 	})
@@ -41,6 +42,6 @@ function watch_button_click(){
 			video_url + '"' + 
 			'frameborder="0" allowFullScreen></iframe>')
 	}
-	
+
 }
 watch_button_click()
