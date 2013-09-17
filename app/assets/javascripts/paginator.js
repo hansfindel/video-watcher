@@ -9,8 +9,12 @@ function Paginator(data, fn){
 	get_data = function(){
 		page =  get_page()
 		start = (page - 1) * per_page() + 1
+		query = $(".videos-container").data("q")
 		info = {
 			"start-index": start
+		}
+		if(query!=""){
+			info["q"] = query;
 		}
 		return info;
 	}

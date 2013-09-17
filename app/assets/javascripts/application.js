@@ -28,10 +28,11 @@ $(document).ready(function(){
 	$("form").submit(function(e){
 		e.preventDefault();
 		input = $(this).children("input")
-
 		t = input.val()
-		console.log(t);
+		//console.log(t);
 		input.val("")
+		$(".videos-container").data("q", t);
+		$(".videos-container").html("")
 	})
 })
 
