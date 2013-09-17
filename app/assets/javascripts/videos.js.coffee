@@ -17,7 +17,8 @@ api_call = (data) ->
 			'X-GData-Key': 'key='+dev_key
 		dataType: 'JSON'
 		error: (jqXHR, textStatus, errorThrown) ->
-			$('body').append "AJAX Error: #{textStatus}"
+			# $('body').append "AJAX Error: #{textStatus}"
+			console.log("ajax error!: #{textStatus}")
 		success: (data) ->
 			#console.log(data)
 			entries = data["feed"]["entry"]
