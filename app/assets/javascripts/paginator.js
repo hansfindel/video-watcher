@@ -1,7 +1,4 @@
-function Paginator(data, fn){
-	if(data==undefined || data==null){
-		data = {}
-	}
+function Paginator(fn){
 	per_page = function(){return 10;}
 	get_page = function(){
 		return $("article").length / per_page() + 1
@@ -20,17 +17,10 @@ function Paginator(data, fn){
 	}
 	this.fetch = function(){
 		//this.stopScrolling()
-		console.log("con this")
-		self = this;
-
-		this.data = get_page();
-		console.log(this.data)
-		fn(this.data)
-		
+		data = get_page();
+		fn(data)
 	}
 	fetch = function(){
-		//stopScrolling()
-		//console.log("sin this")		
 		info = get_data()
 		fn(info)
 	}
@@ -47,7 +37,6 @@ function Paginator(data, fn){
 		//console.log("checking. . .")
 		if(nearBottom()){
 				//console.log("fetching...")
-				//this.fetch();
 				fetch();
 		}
 		self = this;

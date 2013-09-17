@@ -1,4 +1,3 @@
-fn = ->
 api_call = (data) ->
 	dev_key = "AI39si4fWNCFVy6-i7GdE8lh4_LpfAF-Hto6MQedytR3mT78kAtUy_oKC3lM-WuiKKQv2JhWWdzE1w9-NHaBkgEib19H7e7YIQ"
 	# http://gdata.youtube.com/feeds/api/users/default/favorites
@@ -66,8 +65,6 @@ api_call = (data) ->
 			watch_button_click()
 	this 
 
-
-
 video_renderer = () ->
 	if renderer == undefined
 		renderer = new Renderer(Handlebars.TEMPLATES["_film"])
@@ -80,7 +77,7 @@ display_video = (json) ->
 
 #api_call()
 $(document).ready ->
-	pager = new Paginator({}, api_call)
+	pager = new Paginator(api_call)
 	pager.check()
 	#pager.startScrolling()
 	pager.fetch()
