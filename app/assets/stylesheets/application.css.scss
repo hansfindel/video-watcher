@@ -12,6 +12,8 @@
  *= require_tree ./../../../vendor/assets/stylesheets/
  *= require_tree .
  */
+$screen-small:               768px !default;
+$screen-large:               1200px !default;
 
 .container{
 	background: whitesmoke;
@@ -56,18 +58,44 @@ div.video, article.video{
 }
 
 .video-thumbnail{
+	@media (max-width: $screen-small){
+		&.col-3{
+			width: 50%;
+			margin-right: 30px;
+		}
+		img{
+			border: solid black 1px;
+		}
+	}
 	font-size: 12px;
 	img{
 		margin-top: 10px;
 		margin-bottom: -10px;
+		max-width: 100%;
 	}
 }
 .video-meta{
-	border-left-color: rgb(0, 0, 0);
-	border-left-style: dashed;
-	border-left-width: 1px;
+	@media (min-width: $screen-large) {
+		border-left-color: rgb(0, 0, 0);
+		border-left-style: dashed;
+		border-left-width: 1px;
+  	}
+	@media(max-width: $screen-large - 1){
+		ul{
+			width: 300%;
+		}
+		li{
+			display: inline-table;
+			float: left;
+			margin: 10px;
+		}
+	}
+	
 	ul{
 		list-style-type: none;
+		li{
+			list-style-type: none;
+		}
 	}
 }
 
@@ -169,6 +197,9 @@ a.top-right{
 	.search-form{
 		display: none;
 		padding: 70px;
+		@media(max-width: $screen-large){
+			padding-left: 10px !important;
+		}
 		.form-title{
 			margin-bottom: 0px;
 			margin-top: -20px;
@@ -181,6 +212,17 @@ a.top-right{
 
 	&:hover{
 		width: 25%;
+		@media(max-width: $screen-large){
+			width: 30%;
+		}
+		@media(max-width: $screen-small){
+			width: 60%;
+		}
+
+		-webkit-box-shadow:inset 0 0 5px 2px #333, 0 1px 0 0 #666;
+		-moz-box-shadow:inset 0 0 5px 2px #333, 0 1px 0 0 #666;
+		box-shadow:inset 0 0 5px 2px #333, 0 1px 0 0 #666;
+
 		height: 300px;
 
 		.search-form{
@@ -191,6 +233,9 @@ a.top-right{
 			width: 300px;
 			top: 42%;
 			right: -130px;
+			@media(max-width: $screen-small){
+				 /*display: none;*/
+			}
 		}
 	}
 }
