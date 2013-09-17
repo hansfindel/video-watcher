@@ -16,3 +16,31 @@
 // require turbolinks
 //= require_tree .
 //= require_tree ./templates/
+
+$(document).ready(function(){
+	$('body').keypress(function(e){ 
+		console.log(e)
+		if(e.which == 32){ 
+			$("a[data-dismiss='modal']")[0].click()	
+		}
+	})
+	watch_button_click()
+})
+
+function watch_button_click(){ 
+	$("button.watch").click(function(){
+		click_on_watch_button($(this))
+	})
+	function click_on_watch_button(button){
+		console.log("safasdfasf")
+		var video_name = button.data("video-name");
+		var video_url = button.data("video-url");
+		$("h2.modal-title").html(video_name)
+		$(".modal-body").html('<iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="' + 
+			//http://www.youtube.com/v/uelHwf8o7_U?version=3&amp;f=videos&amp;d=AfaDH_nQgCuNTKHkPssLQt4O88HsQjpE1a8d1GxQnGDm&amp;app=youtube_gdata" 
+			video_url + '"' + 
+			'frameborder="0" allowFullScreen></iframe>')
+	}
+	
+}
+watch_button_click()

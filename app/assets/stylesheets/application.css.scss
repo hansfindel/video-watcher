@@ -1,0 +1,130 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree ./../../../vendor/assets/stylesheets/
+ *= require_tree .
+ */
+
+.container{
+	background: whitesmoke;
+}
+.app-title{
+	padding-top: 5px;
+	margin-top: -10px;
+	width: 126%;
+	margin-left: -13% !important;
+	background: #6683b3;
+	color: white;
+	text-shadow: 0 0 2px rgba(0,0,0,.3)
+}
+
+.header-title, .title, .center{
+	text-align: center;
+}
+.header-title{
+	font-size: 3em;
+}
+div.video, article.video{
+	padding: 10px;
+	width: 100%;
+	&:before,
+	  &:after {
+	    content: " "; /* 1 */
+	    display: table; /* 2 */
+	  }
+	  &:after {
+	    clear: both;
+	  }
+
+	border-bottom: 5px #cccccc inset;
+	margin-left: -11px;
+	margin-bottom: 1px;
+}
+.videos-container{
+	background: #dedede;
+}
+
+.video-thumbnail{
+	font-size: 12px;
+	img{
+		margin-top: 10px;
+		margin-bottom: -10px;
+	}
+}
+.video-meta{
+	border-left-color: rgb(0, 0, 0);
+	border-left-style: dashed;
+	border-left-width: 1px;
+	ul{
+		list-style-type: none;
+	}
+}
+
+
+
+
+// buttons
+button:active, button:hover{
+	-webkit-box-shadow:inset 0 0 5px 2px #333, 0 1px 0 0 #666;
+	-moz-box-shadow:inset 0 0 5px 2px #333, 0 1px 0 0 #666;
+	box-shadow:inset 0 0 5px 2px #333, 0 1px 0 0 #666
+}
+
+button{
+	font-size:16px;
+	width:150px;
+	padding:8px 0;
+	background: #6683b3;
+	color:white;
+	cursor:pointer
+}
+
+.stars{
+	span{
+		content: '★ ';
+		color: #ddd;
+		text-shadow: 1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+		font-size: 100%;
+		line-height: 1.2;
+		width: 2em;
+		overflow: hidden;
+		white-space: nowrap;
+		&.active{
+			color: gold;
+			text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+		}
+	}
+}
+
+.row div.modal{
+	display: none;
+}
+.top-right{
+	right: 10px;
+	top: 10px;
+	position: absolute;
+	
+}
+a.top-right{
+	text-decoration: none;
+}
+.modal-footer{
+	width: 94%;
+	text-align: center !important;
+	a{
+		text-align: center;
+		margin: auto;
+	}
+}
+.modal-header{
+	text-align: center !important;
+	width: 95%;
+}

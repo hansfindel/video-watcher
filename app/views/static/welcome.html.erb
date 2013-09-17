@@ -1,6 +1,28 @@
-<section class="col-2">	
-	blah blah... 
-</section>
+
 <section class="col-12 videos-container">
 	<% render "film" %>
 </section>
+<section class="col-2">	
+	blah blah... 
+</section>
+<!-- <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Launch demo modal</a> -->
+
+<!-- Modal -->
+<div class="modal" id="myModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+				<h2 class="modal-title">Video title</h2>
+				<a href="#" data-dismiss="modal" class="top-right">&times;</a>
+			</div>
+			<div class="modal-body">
+				<iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/v/uelHwf8o7_U?version=3&amp;f=videos&amp;d=AfaDH_nQgCuNTKHkPssLQt4O88HsQjpE1a8d1GxQnGDm&amp;app=youtube_gdata" frameborder="0" allowFullScreen></iframe>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Close</button>
+				<!-- <a href="#" data-dismiss="modal" class="btn">Close</a> -->
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,5 +1,5 @@
 VideosWatcher::Application.routes.draw do
-  root to: "static#index"
+  root to: "static#welcome"
   get "static/index"
   get "static/welcome", as: :welcome
   # The priority is based upon order of creation: first created -> highest priority.

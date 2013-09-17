@@ -1,6 +1,6 @@
 xml_api_call = () ->
 	dev_key = "AI39si4fWNCFVy6-i7GdE8lh4_LpfAF-Hto6MQedytR3mT78kAtUy_oKC3lM-WuiKKQv2JhWWdzE1w9-NHaBkgEib19H7e7YIQ"
-	console.log dev_key
+	#console.log dev_key
 	# http://gdata.youtube.com/feeds/api/users/default/favorites
 	$.ajax 
 		url: 'http://gdata.youtube.com/feeds/api/videos?v=2',		
@@ -53,7 +53,7 @@ xml_api_call = () ->
 
 api_call = () ->
 	dev_key = "AI39si4fWNCFVy6-i7GdE8lh4_LpfAF-Hto6MQedytR3mT78kAtUy_oKC3lM-WuiKKQv2JhWWdzE1w9-NHaBkgEib19H7e7YIQ"
-	console.log dev_key
+	#console.log dev_key
 	# http://gdata.youtube.com/feeds/api/users/default/favorites
 	$.ajax 
 		url: 'http://gdata.youtube.com/feeds/api/videos?v=2&alt=json',		
@@ -71,6 +71,9 @@ api_call = () ->
 			entries.map (entry) ->
 				id = entry["id"]["$t"]
 				content = entry["link"][0] #[rel='alternate'][type='text/html']")
+				category = entry["category"][1]["term"]
+				comment_info = entry["gd$comments"]["gd$feedLink"]
+				comment_count = comment_info["countHint"]
 				video = content.href
 				published = entry['published']["$t"]
 				title = entry['title']["$t"]
@@ -83,21 +86,26 @@ api_call = () ->
 				views = entry["yt$statistics"]["viewCount"]
 				likes = entry["yt$rating"]["numLikes"]
 				dislikes = entry["yt$rating"]["numDislikes"]
+				rating = entry["gd$rating"]["average"]
 				json = 
-					videoId:	 id
-					author:		 uploader
-					date: 		 published
-					description: description
-					duration: 	 duration
-					dislikes:	 dislikes
-					likes:		 likes
-					title:		 title
-					thumbnail:	 thumbnail
-					views:		 views
-					videoUrl:	 video
+					videoId:		 id
+					author:			 uploader
+					category:	 	 category
+					comment_count: 	 comment_count
+					date: 			 published
+					description:	 description
+					duration:	 	 duration
+					dislikes:		 dislikes
+					likes:			 likes
+					rating: 		 rating
+					title:			 title
+					thumbnail:		 thumbnail
+					views:			 views
+					videoUrl:		 video
 				#console.log(json)
 				#console.log "#####################################"
 				display_video(json)
+			watch_button_click()
 	null 
 
 
@@ -115,3 +123,9 @@ display_video = (json) ->
 
 #xml_api_call()
 api_call()
+
+
+
+$('body').keypress = (e) ->
+	if(e.which == 27)
+		$("a[data-dismiss='modal']")[0].click()
