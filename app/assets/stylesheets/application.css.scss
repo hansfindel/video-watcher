@@ -136,7 +136,7 @@ a.top-right{
 	position: fixed;
 	left: 0px;
 	top:40%;
-	height: 30%;
+	height: 150px;
 	width: 5%;
 	background: #dedede;
 	vertical-align: middle;
@@ -158,10 +158,10 @@ a.top-right{
 		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);		
 
 		background: #6683b3;
-		width: 200%;
+		width: 150px;
 		/*right: -60px;*/
-		right: -44px;
-		top: 33%;
+		right: -50px;
+		top: 34%;
 		color: white;
 		line-height: 3em;
 	}
@@ -181,16 +181,16 @@ a.top-right{
 
 	&:hover{
 		width: 25%;
-		height: 50%;
+		height: 300px;
 
 		.search-form{
 			display: inline-block;
 			position: relative;
 		}
 		.label{
-			width: 67.9%;
-			top: 40.1%;
-			right: -93px;
+			width: 300px;
+			top: 42%;
+			right: -130px;
 		}
 	}
 }
