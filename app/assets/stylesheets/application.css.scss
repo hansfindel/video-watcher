@@ -128,3 +128,65 @@ a.top-right{
 	text-align: center !important;
 	width: 95%;
 }
+
+.search-box{
+	position: fixed;
+	left: 0px;
+	top:40%;
+	height: 30%;
+	width: 5%;
+	background: #dedede;
+	vertical-align: middle;
+	.label{
+		position: absolute;
+		vertical-align: middle;
+		text-align: center;
+		float: right;
+		right: 0px;
+		/*top: 30%;*/
+		-webkit-transform: rotate(90deg);
+		/* Firefox */
+		-moz-transform: rotate(90deg);
+		/* IE */
+		-ms-transform: rotate(90deg);
+		/* Opera */
+		-o-transform: rotate(90deg);
+		/* Internet Explorer */
+		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);		
+
+		background: #6683b3;
+		width: 200%;
+		right: -60px;
+		top: 33%;
+		color: white;
+		line-height: 3em;
+	}
+
+	.search-form{
+		display: none;
+		padding: 70px;
+		.form-title{
+			margin-bottom: 0px;
+			margin-top: -20px;
+			text-align: center;
+		}
+		input{
+			width: 145px;
+		}
+	}
+
+	&:hover{
+		width: 25%;
+		height: 50%;
+
+		.search-form{
+			display: inline-block;
+			position: relative;
+		}
+		.label{
+			width: 67.9%;
+			top: 40.1%;
+			right: -93px;
+		}
+	}
+}
