@@ -70,11 +70,12 @@ api_call = () ->
 			entries = data["feed"]["entry"]
 			entries.map (entry) ->
 				id = entry["id"]["$t"]
-				content = entry["link"][0] #[rel='alternate'][type='text/html']")
+				#content = entry["link"][0] #[rel='alternate'][type='text/html']")
+				#video = content.href
+				video = entry["content"]["src"]
 				category = entry["category"][1]["term"]
 				comment_info = entry["gd$comments"]["gd$feedLink"]
 				comment_count = comment_info["countHint"]
-				video = content.href
 				published = entry['published']["$t"]
 				title = entry['title']["$t"]
 				uploader = entry['author'][0]["name"]["$t"]
