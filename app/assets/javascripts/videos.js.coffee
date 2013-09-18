@@ -60,7 +60,6 @@ api_call = (data) ->
 					views:			 views
 					videoUrl:		 video
 				#console.log(json)
-				#console.log "#####################################"
 				display_video(json)
 			watch_button_click()
 	this 
@@ -77,7 +76,7 @@ display_video = (json) ->
 
 #api_call()
 $(document).ready ->
-	pager = new Paginator(api_call)
+	pager = new Paginator(api_call) # registers the function to call
 	pager.check()
 	#pager.startScrolling()
 	pager.fetch()
