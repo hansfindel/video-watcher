@@ -1,4 +1,4 @@
-video-watcher
+Video-Watcher
 =============
 
-playing with youtube's API
+Playing with youtube's API

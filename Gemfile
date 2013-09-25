@@ -46,3 +46,4 @@ end
 
 #handlebars and handlebars files stored in assets/javascripts/templates
 gem 'rails-handlebars', git: "git@github.com:hansfindel/rails-handlebars.git"
+

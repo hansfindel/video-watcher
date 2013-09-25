@@ -81,3 +81,4 @@ $(document).ready ->
 	#pager.startScrolling()
 	pager.fetch()
 	true
+	
