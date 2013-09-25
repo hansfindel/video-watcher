@@ -24,7 +24,7 @@ api_call = (data) ->
 			#console.log(data)
 			entries = data["feed"]["entry"]
 			entries.map (entry) ->
-				console.log entry
+				#console.log entry
 				id = entry["id"]["$t"]
 				#content = entry["link"][0] #[rel='alternate'][type='text/html']")
 				#video = content.href
