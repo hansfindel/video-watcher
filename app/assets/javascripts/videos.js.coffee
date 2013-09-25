@@ -17,7 +17,7 @@ api_call = (data) ->
 		headers: 
 			'X-GData-Key': 'key='+dev_key
 		dataType: 'JSON'
-		error: (jqXHR, textStatus, errorThrown) ->
+		error: (json, textStatus, errorThrown) ->
 			# $('body').append "AJAX Error: #{textStatus}"
 			console.log("ajax error!: #{textStatus}")
 		success: (data) ->
